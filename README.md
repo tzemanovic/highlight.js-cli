@@ -6,7 +6,7 @@ Use [highlight.js](http://highlightjs.org/) from command line on HTML or Markdow
 ## Install
 
 ```
-npm install highlight.js-cli --g
+npm install highlight.js-cli -g
 ```
 
 ## Use
