@@ -1,0 +1,36 @@
+{
+  "name": "highlight.js-cli",
+  "version": "0.0.1",
+  "description": "use highlight.js from command line",
+  "homepage": "https://github.com/maseek/highlight.js-cli",
+  "bugs": "https://github.com/maseek/highlight.js-cli/issues",
+  "author": {
+    "name": "Tomas Zemanovic",
+    "email": "tzemanovic@gmail.com",
+    "url": "http://maseek.codes"
+  },
+  "keywords": [
+    "highlight.js",
+    "cli"
+  ],
+  "bin": {
+	"hljs": "./bin/hljs"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/maseek/highlight.js-cli.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "dependencies": {
+    "highlight.js": "*",
+    "cheerio": "*",
+	"cli" : "*"
+  }
+}
