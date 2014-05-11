@@ -1,6 +1,6 @@
 {
   "name": "highlight.js-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "use highlight.js from command line",
   "homepage": "https://github.com/maseek/highlight.js-cli",
   "bugs": "https://github.com/maseek/highlight.js-cli/issues",
@@ -11,7 +11,11 @@
   },
   "keywords": [
     "highlight.js",
-    "cli"
+    "cli",
+	"javascript",
+	"highlight"
+	"html",
+	"markdown"
   ],
   "bin": {
 	"hljs": "./bin/hljs"
@@ -32,6 +36,7 @@
   "dependencies": {
     "highlight.js": "*",
     "cheerio": "*",
-	"cli" : "*"
+	"cli": "*",
+	"html-entities": "*"
   }
 }

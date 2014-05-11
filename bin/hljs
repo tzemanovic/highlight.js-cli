@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 
-var cli 	= require('cli'),
-	hljs 	= require('highlight.js'),
-	cheerio = require('cheerio')
-	opts 	= cli.parse();
+var cli = require('cli'),
+	hljs = require('highlight.js'),
+	cheerio = require('cheerio'),
+	Entities = require('html-entities').AllHtmlEntities,
+	entities = new Entities(),
+	opts = cli.parse();
 	
 var options = {
     selector: 'pre code'
@@ -14,9 +16,12 @@ if (opts.s) {
 }
 	
 cli.withStdin(function(input) {
-    var $ = cheerio.load(input);
-	$(options.selector).each(function() {
-        $(this).html(hljs.highlightAuto($(this).html()).value);
-    });
-    this.output($.html());
+	var $ = cheerio.load(input);
+	var a;
+	$(options.selector).each(function(i, elem) {
+	
+		$(this).html(hljs.highlightAuto($(this).text()).value);
+		a = $(this).text();
+	});
+	this.output(entities.decode($.html()));
 });
