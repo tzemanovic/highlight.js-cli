@@ -25,7 +25,8 @@
   },
   "licenses": [
     {
-      "type": "MIT"
+      "type": "BSD",
+	  "url": "https://github.com/maseek/highlight.js-cli/blob/master/LICENSE"
     }
   ],
   "dependencies": {
