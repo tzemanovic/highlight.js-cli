@@ -17,11 +17,8 @@ if (opts.s) {
 	
 cli.withStdin(function(input) {
 	var $ = cheerio.load(input);
-	var a;
 	$(options.selector).each(function(i, elem) {
-	
-		$(this).html(hljs.highlightAuto($(this).text()).value);
-		a = $(this).text();
+		$(this).html(hljs.highlightAuto($(this).text()).value).addClass('hljs');
 	});
 	this.output(entities.decode($.html()));
 });
