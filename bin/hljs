@@ -19,7 +19,7 @@ cli.withStdin(function(input) {
 	var $ = cheerio.load(input);
 	$(options.selector).each(function(i, elem) {
 		var lang = $(this).attr('class');
-		$(this).html(lang ? hljs.highlight(lang, $(this).text()).value : hljs.highlightAuto($(this).text()).value).addClass('hljs');
+		$(this).text(lang ? hljs.highlight(lang, $(this).text()).value : hljs.highlightAuto($(this).text()).value).addClass('hljs');
 	});
 	this.output(entities.decode($.html()));
 });
