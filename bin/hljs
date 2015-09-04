@@ -6,12 +6,19 @@ var cli = require('cli'),
 	cheerio = require('cheerio'),
 	Entities = require('html-entities').AllHtmlEntities,
 	entities = new Entities(),
+	fs = require('fs'),
 	opts = cli.parse({
 		selector: [
 			's', 
 			'jQuery style selector which specifies on which elements highlighting is applied', 
 			'string', 
 			'pre code'
+		],
+		output: [
+			'o',
+			'Output file path',
+			'file',
+			false
 		]
 	});
 	
@@ -27,5 +34,10 @@ cli.withStdin(function(input) {
 		}
 		$(this).text(highlighted).addClass('hljs');
 	});
-	this.output(entities.decode($.html()));
+	var out = entities.decode($.html());
+	if(opts.output){
+		fs.writeFileSync(opts.output, out);
+	} else {
+		this.output(out);
+	}
 });

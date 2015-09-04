@@ -11,7 +11,7 @@ npm install highlight.js-cli -g
 
 ## Usage
 
-Input it taken from stdin, the default selector is "pre code", i.e. `<pre><code>...</code></pre>`. Other DOM elements than those fitting the selector are not highlighted.
+Input it taken from stdin and output to stdout if not specified otherwise (see example below). The default selector is "pre code", i.e. `<pre><code>...</code></pre>`. Other DOM elements than those fitting the selector are not highlighted.
 
 To highlight a file:
 
@@ -19,11 +19,19 @@ To highlight a file:
 hljs < input.html > output.html
 ```
 
-To highlight a string:
+You can also use the `--o` parameter:
+
+```
+hljs --o output.html < input.html
+```
+
+To highlight a multi-line string from stdin:
 
 ```
 hljs <<EOF
-<pre><code>var stuff="asd"</code></pre>
+<pre><code>
+var stuff="asd"
+</code></pre>
 EOF
 ```
 
