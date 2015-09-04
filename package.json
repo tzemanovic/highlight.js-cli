@@ -34,9 +34,9 @@
     }
   ],
   "dependencies": {
-    "highlight.js": "*",
-    "cheerio": "*",
-	"cli": "*",
-	"html-entities": "*"
+    "highlight.js": "~8.7",
+    "cheerio": "~0.19",
+	  "cli": "~0.9",
+	  "html-entities": "~1.1"
   }
 }
