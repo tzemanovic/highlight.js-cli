@@ -2,24 +2,42 @@
 
 var cli = require('cli'),
 	hljs = require('highlight.js'),
+	avaiableLanguages = hljs.listLanguages(),
 	cheerio = require('cheerio'),
 	Entities = require('html-entities').AllHtmlEntities,
 	entities = new Entities(),
-	opts = cli.parse();
-	
-var options = {
-    selector: 'pre code'
-};
-
-if (opts.s) {
-	options.selector = opts.s;
-}
+	fs = require('fs'),
+	opts = cli.parse({
+		selector: [
+			's', 
+			'jQuery style selector which specifies on which elements highlighting is applied', 
+			'string', 
+			'pre code'
+		],
+		output: [
+			'o',
+			'Output file path',
+			'file',
+			false
+		]
+	});
 	
 cli.withStdin(function(input) {
 	var $ = cheerio.load(input);
-	$(options.selector).each(function(i, elem) {
+	$(opts.selector).each(function(i, elem) {
 		var lang = $(this).attr('class');
-		$(this).text(lang ? hljs.highlight(lang, $(this).text()).value : hljs.highlightAuto($(this).text()).value).addClass('hljs');
+		var highlighted;
+		if(lang && avaiableLanguages.indexOf(lang.toLower) != -1){
+			highlighted = hljs.highlight(lang, $(this).text()).value;
+		} else {
+			highlighted = hljs.highlightAuto($(this).text()).value;
+		}
+		$(this).text(highlighted).addClass('hljs');
 	});
-	this.output(entities.decode($.html()));
+	var out = entities.decode($.html());
+	if(opts.output){
+		fs.writeFileSync(opts.output, out);
+	} else {
+		this.output(out);
+	}
 });
