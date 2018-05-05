@@ -1,13 +1,13 @@
 {
   "name": "highlight.js-cli",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "use highlight.js from command line",
-  "homepage": "https://github.com/maseek/highlight.js-cli",
-  "bugs": "https://github.com/maseek/highlight.js-cli/issues",
+  "homepage": "https://github.com/tzemanovic/highlight.js-cli",
+  "bugs": "https://github.com/tzemanovic/highlight.js-cli/issues",
   "author": {
     "name": "Tomas Zemanovic",
     "email": "tzemanovic@gmail.com",
-    "url": "http://maseek.codes"
+    "url": "https://tzemanovic.github.io"
   },
   "keywords": [
     "highlight.js",
@@ -18,25 +18,25 @@
 	"markdown"
   ],
   "bin": {
-	"hljs": "./bin/hljs"
+	"hljs": "./bin/hljs.js"
   },
   "engines": {
     "node": "*"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/maseek/highlight.js-cli.git"
+    "url": "git://github.com/tzemanovic/highlight.js-cli.git"
   },
   "licenses": [
     {
       "type": "BSD",
-	  "url": "https://github.com/maseek/highlight.js-cli/blob/master/LICENSE"
+	  "url": "https://github.com/tzemanovic/highlight.js-cli/blob/master/LICENSE"
     }
   ],
   "dependencies": {
-    "highlight.js": "~8.7",
-    "cheerio": "~0.19",
-    "cli": "~0.9",
-    "html-entities": "~1.1"
+    "highlight.js": "~9.12.0",
+    "cheerio": "~0.22",
+    "cli": "~1.0.1",
+    "html-entities": "~1.2.1"
   }
 }
