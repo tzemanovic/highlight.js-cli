@@ -22,15 +22,25 @@ var cli = require('cli'),
       ]
     });
 
+function language(cls) {
+  if (cls) {
+    var lang = cls.toLowerCase().replace('language-', '');
+    if (availableLanguages.indexOf(lang) != -1) {
+      return lang;
+    }
+  }
+  return null;
+}
+
 cli.withStdin(function(input) {
   var $ = cheerio.load(input, {
     decodeEntities: false
   });
   $(opts.selector).each(function(_, elem) {
-    var lang = $(elem).attr('class');
+    var lang = language($(elem).attr('class'));
     var target = entities.decode($(elem).text());
     var highlighted;
-    if (lang && availableLanguages.indexOf(lang.toLower) != -1) {
+    if (lang) {
       highlighted = hljs.highlight(lang, target).value;
     } else {
       highlighted = hljs.highlightAuto(target).value;
