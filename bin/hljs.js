@@ -2,7 +2,7 @@
 
 var cli = require('cli'),
     hljs = require('highlight.js'),
-    avaiableLanguages = hljs.listLanguages(),
+    availableLanguages = hljs.listLanguages(),
     cheerio = require('cheerio'),
     Entities = require('html-entities').AllHtmlEntities,
     entities = new Entities(),
@@ -27,7 +27,7 @@ cli.withStdin(function(input) {
   $(opts.selector).each(function(_, elem) {
     var lang = $(elem).attr('class');
     var highlighted;
-    if (lang && avaiableLanguages.indexOf(lang.toLower) != -1) {
+    if (lang && availableLanguages.indexOf(lang.toLower) != -1) {
       highlighted = hljs.highlight(lang, $(elem).text()).value;
     } else {
       highlighted = hljs.highlightAuto($(elem).text()).value;
