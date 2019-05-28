@@ -23,18 +23,21 @@ var cli = require('cli'),
     });
 
 cli.withStdin(function(input) {
-  var $ = cheerio.load(input);
+  var $ = cheerio.load(input, {
+    decodeEntities: false
+  });
   $(opts.selector).each(function(_, elem) {
     var lang = $(elem).attr('class');
+    var target = entities.decode($(elem).text());
     var highlighted;
     if (lang && availableLanguages.indexOf(lang.toLower) != -1) {
-      highlighted = hljs.highlight(lang, $(elem).text()).value;
+      highlighted = hljs.highlight(lang, target).value;
     } else {
-      highlighted = hljs.highlightAuto($(elem).text()).value;
+      highlighted = hljs.highlightAuto(target).value;
     }
     $(elem).text(highlighted).addClass('hljs');
   });
-  var out = entities.decode($.html());
+  var out = $.html();
   if (opts.output) {
     fs.writeFileSync(opts.output, out);
   } else {
