@@ -1,6 +1,6 @@
 {
   "name": "highlight.js-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "use highlight.js from command line",
   "homepage": "https://github.com/tzemanovic/highlight.js-cli",
   "bugs": "https://github.com/tzemanovic/highlight.js-cli/issues",
@@ -12,13 +12,13 @@
   "keywords": [
     "highlight.js",
     "cli",
-	"javascript",
-	"highlight",
-	"html",
-	"markdown"
+    "javascript",
+    "highlight",
+    "html",
+    "markdown"
   ],
   "bin": {
-	"hljs": "./bin/hljs.js"
+    "hljs": "./bin/hljs.js"
   },
   "engines": {
     "node": "*"
@@ -30,7 +30,7 @@
   "licenses": [
     {
       "type": "BSD",
-	  "url": "https://github.com/tzemanovic/highlight.js-cli/blob/master/LICENSE"
+      "url": "https://github.com/tzemanovic/highlight.js-cli/blob/master/LICENSE"
     }
   ],
   "dependencies": {
